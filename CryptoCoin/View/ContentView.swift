@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var tag = 10
     
     var body: some View {
-        TabView {
+        TabView(selection: $tag) {
             TrendingView()
                 .tabItem {
                     Image(systemName: "chart.xyaxis.line")
                 }
+                .tag(0)
+            
+            FavoriteCoinView()
+                .tabItem {
+                    Image(systemName: "heart.rectangle.fill")
+                }
+                .tag(2)
         }
         .accentColor(.purple)
     }
