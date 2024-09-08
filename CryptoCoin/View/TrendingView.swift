@@ -16,11 +16,10 @@ enum Section: String, CaseIterable {
 struct TrendingView: View {
     var body: some View {
         NavigationView {
-            VStack {
+            ScrollView {
                 ForEach(Section.allCases, id: \.self) { section in
                     Text(section.rawValue)
                         .asSubTitle()
-                    FavoriteView()
                 }
                     
                 Spacer()
@@ -57,7 +56,8 @@ struct FavoriteView: View {
                 .fill(.gray.opacity(0.1))
                 .frame(width: 210)
             VStack(alignment: .leading) {
-                CoinInfoView(data: data)
+                let infoData = CoinInfo(name: data.name, symbol: data.symbol, image: data.image)
+                CoinInfoView(data: infoData, type: .large)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Spacer()
                 
@@ -83,6 +83,57 @@ struct FavoriteView: View {
             }
     }
 }
+
+struct CoinTop15View: View {
+    @State private var screenWidth: CGFloat = 0.0
+    private let coins: Coins
+    private var column = [GridItem(.flexible(minimum: 48)),
+                          GridItem(.flexible(minimum: 48)),
+                          GridItem(.flexible(minimum: 48))]
+    
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHGrid(rows: column, spacing: 20) {
+                ForEach(Array(zip(coins.indices, coins)), id: \.0) { index, data in
+                    cellView(index: "\(index)", data.item)
+                        .frame(width: screenWidth - 40)
+                        .padding(.vertical, 8)
+                }
+            }
+        }
+        .onReadSize { size in
+            screenWidth = size.width
+        }
+    }
+    
+    func cellView(index: String, _ data: Item) -> some View {
+        HStack {
+            Text(index)
+                .font(.title3).bold()
+            
+            let infoData = CoinInfo(name: data.name, symbol: data.symbol, image: data.small)
+            CoinInfoView(data: infoData, type: .small)
+            
+            Spacer()
+            
+            coinDataView(data.data)
+        }
+        .frame(height: 48)
+    }
+    
+    func coinDataView(_ data: ItemData) -> some View {
+        VStack(alignment: .trailing) {
+            Text(data.formattedPrice)
+                .font(.footnote)
+                .fontWeight(.medium)
+                .foregroundStyle(.black.opacity(0.8))
+            Text(data.fluctuationRange)
+                .font(.caption)
+                .foregroundStyle(data.isPositiveFluctuating ? .red : .blue)
+        }
+    }
+}
+
 
 #Preview {
     TrendingView()

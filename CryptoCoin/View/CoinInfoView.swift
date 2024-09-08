@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct CoinInfoView: View {
-    let data: CoinDataResponse
+    let data: CoinInfo
+    let type: CoinInfoType
     
-    init(data: CoinDataResponse) {
+    init(data: CoinInfo, type: CoinInfoType) {
         self.data = data
+        self.type = type
     }
     
     var body: some View {
@@ -20,7 +22,7 @@ struct CoinInfoView: View {
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 44, height: 44)
+                    .frame(width: type.size, height: type.size)
             } placeholder: {
                 ProgressView()
             }
@@ -28,15 +30,48 @@ struct CoinInfoView: View {
             
             VStack(alignment: .leading) {
                 Text(data.name)
-                    .font(.headline).bold()
+                    .font(type.nameFont)
+                    .fontWeight(.semibold)
                 Text(data.symbol.uppercased())
-                    .font(.caption)
+                    .font(type.symbolFont)
                     .foregroundStyle(.gray)
             }
         }
     }
 }
 
+struct CoinInfo {
+    let name: String
+    let symbol: String
+    let image: String
+}
+
+enum CoinInfoType {
+    case small
+    case large
+    
+    var size: CGFloat {
+        switch self {
+        case .small: 32
+        case .large: 44
+        }
+    }
+    
+    var nameFont: Font {
+        switch self {
+        case .small: .subheadline
+        case .large: .headline
+        }
+    }
+    
+    var symbolFont: Font {
+        switch self {
+        case .small: .caption2
+        case .large: .caption
+        }
+    }
+}
+
 #Preview {
-    CoinInfoView(data: CoinDataResponse(id: "", symbol: "btc", name: "Bitcoin", image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400", currentPrice: 0, high24H: 0, low24H: 0, priceChangePercentage24H: 0, ath: 0, athDate: "", atl: 0, atlDate: "", lastUpdated: "", sparklineIn7D: nil))
+    CoinInfoView(data: CoinInfo(name: "Bitcoin", symbol: "btc", image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400"), type: CoinInfoType.large)
 }
