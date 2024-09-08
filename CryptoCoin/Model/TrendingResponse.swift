@@ -64,6 +64,16 @@ struct NftData: Decodable, Hashable {
     let floorPrice, floorPriceInUsd24HPercentageChange: String
     let sparkline: String
 
+    var fluctuationPercent: String {
+        guard let data = Double(floorPriceInUsd24HPercentageChange) else { return "" }
+        return String(format: "%.2f", data)
+    }
+    
+    var isPositiveFluctuating: Bool {
+        guard let data = Double(fluctuationPercent) else { return false }
+        return data >= 0
+    }
+    
     enum CodingKeys: String, CodingKey {
         case floorPrice = "floor_price"
         case floorPriceInUsd24HPercentageChange = "floor_price_in_usd_24h_percentage_change"

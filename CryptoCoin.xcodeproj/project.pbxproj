@@ -17,6 +17,8 @@
 		C039EBD72C8DAA7C00727EDA /* CoinInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039EBD62C8DAA7C00727EDA /* CoinInfoView.swift */; };
 		C039EBD92C8DB8A000727EDA /* TrendingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039EBD82C8DB8A000727EDA /* TrendingResponse.swift */; };
 		C039EBDB2C8DD1A300727EDA /* ViewSizeWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039EBDA2C8DD1A300727EDA /* ViewSizeWrapper.swift */; };
+		C039EBDD2C8DDF8D00727EDA /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039EBDC2C8DDF8D00727EDA /* UserDefaultsWrapper.swift */; };
+		C039EBE02C8DE19F00727EDA /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039EBDF2C8DE19F00727EDA /* UserDefaultsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		C039EBD62C8DAA7C00727EDA /* CoinInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInfoView.swift; sourceTree = "<group>"; };
 		C039EBD82C8DB8A000727EDA /* TrendingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingResponse.swift; sourceTree = "<group>"; };
 		C039EBDA2C8DD1A300727EDA /* ViewSizeWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSizeWrapper.swift; sourceTree = "<group>"; };
+		C039EBDC2C8DDF8D00727EDA /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
+		C039EBDF2C8DE19F00727EDA /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 		C039EBBB2C8D8ADF00727EDA /* CryptoCoin */ = {
 			isa = PBXGroup;
 			children = (
+				C039EBDE2C8DE17E00727EDA /* Manager */,
 				C039EBD12C8D9C0200727EDA /* Model */,
 				C039EBCC2C8D8FC300727EDA /* Wrapper */,
 				C039EBBC2C8D8ADF00727EDA /* CryptoCoinApp.swift */,
@@ -87,6 +92,7 @@
 			children = (
 				C039EBCD2C8D8FD500727EDA /* SubTitleWrapper.swift */,
 				C039EBDA2C8DD1A300727EDA /* ViewSizeWrapper.swift */,
+				C039EBDC2C8DDF8D00727EDA /* UserDefaultsWrapper.swift */,
 			);
 			path = Wrapper;
 			sourceTree = "<group>";
@@ -107,6 +113,14 @@
 				C039EBD82C8DB8A000727EDA /* TrendingResponse.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C039EBDE2C8DE17E00727EDA /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C039EBDF2C8DE19F00727EDA /* UserDefaultsManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,10 +194,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C039EBCB2C8D8B9800727EDA /* TrendingView.swift in Sources */,
+				C039EBDD2C8DDF8D00727EDA /* UserDefaultsWrapper.swift in Sources */,
 				C039EBD72C8DAA7C00727EDA /* CoinInfoView.swift in Sources */,
 				C039EBCE2C8D8FD500727EDA /* SubTitleWrapper.swift in Sources */,
 				C039EBD32C8D9C8B00727EDA /* CoinDataResponse.swift in Sources */,
 				C039EBD92C8DB8A000727EDA /* TrendingResponse.swift in Sources */,
+				C039EBE02C8DE19F00727EDA /* UserDefaultsManager.swift in Sources */,
 				C039EBDB2C8DD1A300727EDA /* ViewSizeWrapper.swift in Sources */,
 				C039EBBF2C8D8ADF00727EDA /* ContentView.swift in Sources */,
 				C039EBBD2C8D8ADF00727EDA /* CryptoCoinApp.swift in Sources */,
