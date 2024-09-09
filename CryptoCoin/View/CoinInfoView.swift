@@ -10,10 +10,12 @@ import SwiftUI
 struct CoinInfoView: View {
     let data: CoinInfo
     let type: CoinInfoType
+    let target: String?
     
-    init(data: CoinInfo, type: CoinInfoType) {
+    init(data: CoinInfo, type: CoinInfoType, target: String? = nil) {
         self.data = data
         self.type = type
+        self.target = target
     }
     
     var body: some View {
@@ -29,9 +31,18 @@ struct CoinInfoView: View {
             
             
             VStack(alignment: .leading) {
-                Text(data.name)
-                    .font(type.nameFont)
-                    .fontWeight(.semibold)
+                if let target {
+                    Text("")
+                        .asHighlightText(original: data.name, target: target)
+                        .font(type.nameFont)
+                        .fontWeight(type.nameFontWeight)
+                        .lineLimit(1)
+                } else {
+                    Text(data.name)
+                        .font(type.nameFont)
+                        .fontWeight(type.nameFontWeight)
+                        .lineLimit(1)
+                }
                 Text(data.symbol.uppercased())
                     .font(type.symbolFont)
                     .foregroundStyle(.gray)
@@ -49,11 +60,13 @@ struct CoinInfo {
 enum CoinInfoType {
     case small
     case large
+    case search
     
     var size: CGFloat {
         switch self {
         case .small: 32
         case .large: 44
+        case .search: 32
         }
     }
     
@@ -61,6 +74,14 @@ enum CoinInfoType {
         switch self {
         case .small: .subheadline
         case .large: .headline
+        case .search: .headline
+        }
+    }
+    
+    var nameFontWeight: Font.Weight {
+        switch self {
+        case .search: .bold
+        default: .semibold
         }
     }
     
@@ -68,10 +89,11 @@ enum CoinInfoType {
         switch self {
         case .small: .caption2
         case .large: .caption
+        case .search: .footnote
         }
     }
 }
 
 #Preview {
-    CoinInfoView(data: CoinInfo(name: "Bitcoin", symbol: "btc", image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400"), type: CoinInfoType.large)
+    CoinInfoView(data: CoinInfo(name: "Bitcoin", symbol: "btc", image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400"), type: CoinInfoType.search, target: "bit")
 }

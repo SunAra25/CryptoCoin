@@ -21,6 +21,9 @@
 		C039EBDB2C8DD1A300727EDA /* ViewSizeWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039EBDA2C8DD1A300727EDA /* ViewSizeWrapper.swift */; };
 		C039EBDD2C8DDF8D00727EDA /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039EBDC2C8DDF8D00727EDA /* UserDefaultsWrapper.swift */; };
 		C039EBE02C8DE19F00727EDA /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039EBDF2C8DE19F00727EDA /* UserDefaultsManager.swift */; };
+		C0AB32F42C8E7855003EC6BE /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AB32F32C8E7855003EC6BE /* SearchView.swift */; };
+		C0AB32F62C8E78D1003EC6BE /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AB32F52C8E78D1003EC6BE /* SearchResponse.swift */; };
+		C0AFF9AC2C8EFA1B00FE9FA3 /* HighlightTextWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AFF9AB2C8EFA1B00FE9FA3 /* HighlightTextWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		C039EBDA2C8DD1A300727EDA /* ViewSizeWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSizeWrapper.swift; sourceTree = "<group>"; };
 		C039EBDC2C8DDF8D00727EDA /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
 		C039EBDF2C8DE19F00727EDA /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		C0AB32F32C8E7855003EC6BE /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		C0AB32F52C8E78D1003EC6BE /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		C0AFF9AB2C8EFA1B00FE9FA3 /* HighlightTextWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightTextWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 				C039EBDA2C8DD1A300727EDA /* ViewSizeWrapper.swift */,
 				C039EBDC2C8DDF8D00727EDA /* UserDefaultsWrapper.swift */,
 				C0113FB52C8DFA5F002F30C4 /* ShadowWrapper.swift */,
+				C0AFF9AB2C8EFA1B00FE9FA3 /* HighlightTextWrapper.swift */,
 			);
 			path = Wrapper;
 			sourceTree = "<group>";
@@ -108,6 +115,7 @@
 				C039EBCA2C8D8B9800727EDA /* TrendingView.swift */,
 				C039EBD62C8DAA7C00727EDA /* CoinInfoView.swift */,
 				C0113FB32C8DF42B002F30C4 /* FavoriteCoinView.swift */,
+				C0AB32F32C8E7855003EC6BE /* SearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,6 +125,7 @@
 			children = (
 				C039EBD22C8D9C8B00727EDA /* CoinDataResponse.swift */,
 				C039EBD82C8DB8A000727EDA /* TrendingResponse.swift */,
+				C0AB32F52C8E78D1003EC6BE /* SearchResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,14 +208,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0AB32F62C8E78D1003EC6BE /* SearchResponse.swift in Sources */,
 				C039EBCB2C8D8B9800727EDA /* TrendingView.swift in Sources */,
 				C0113FB62C8DFA5F002F30C4 /* ShadowWrapper.swift in Sources */,
 				C039EBDD2C8DDF8D00727EDA /* UserDefaultsWrapper.swift in Sources */,
 				C039EBD72C8DAA7C00727EDA /* CoinInfoView.swift in Sources */,
 				C039EBCE2C8D8FD500727EDA /* SubTitleWrapper.swift in Sources */,
 				C039EBD32C8D9C8B00727EDA /* CoinDataResponse.swift in Sources */,
+				C0AFF9AC2C8EFA1B00FE9FA3 /* HighlightTextWrapper.swift in Sources */,
 				C0113FB42C8DF42B002F30C4 /* FavoriteCoinView.swift in Sources */,
 				C039EBD92C8DB8A000727EDA /* TrendingResponse.swift in Sources */,
+				C0AB32F42C8E7855003EC6BE /* SearchView.swift in Sources */,
 				C039EBE02C8DE19F00727EDA /* UserDefaultsManager.swift in Sources */,
 				C039EBDB2C8DD1A300727EDA /* ViewSizeWrapper.swift in Sources */,
 				C039EBBF2C8D8ADF00727EDA /* ContentView.swift in Sources */,
