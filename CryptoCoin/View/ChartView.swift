@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Charts
 
 struct ChartView: View {
     let data: CoinDataResponse
@@ -27,7 +28,38 @@ struct ChartView: View {
                 priceView()
             }
             
-            // TODO: 차트
+            if let sparkPoint = data.sparklineIn7D?.price {
+                let maxPoint = Int(sparkPoint.max() ?? 0) + 1
+                let minPoint = Int(sparkPoint.min() ?? 0)
+                
+                let yRange = minPoint...maxPoint
+                let linearGradient = LinearGradient(gradient: Gradient(colors: [Color.purple.opacity(0.8),
+//                                                                                Color.purple.opacity(0.4),
+                                                                                Color.purple.opacity(0)]),
+                                                    startPoint: .top,
+                                                    endPoint: .bottom)
+                Chart {
+                    ForEach(Array(zip(sparkPoint.indices, sparkPoint)), id: \.0) { index, point in
+                        LineMark(x: .value("Index", index),
+                                 y: .value("Population", point))
+                    }
+                    .interpolationMethod(.cardinal)
+                    .foregroundStyle(.purple.opacity(0.8))
+                    
+                    ForEach(Array(zip(sparkPoint.indices, sparkPoint)), id: \.0) { index, point in
+                        AreaMark(x: .value("Index", index),
+                                 y: .value("Population", point))
+                    }
+                    .interpolationMethod(.cardinal)
+                    .foregroundStyle(linearGradient)
+                }
+                .chartXScale(domain: 0...sparkPoint.count)
+                .chartYScale(domain: yRange)
+                .chartXAxis(.hidden)
+                .chartYAxis(.hidden)
+                .aspectRatio(1, contentMode: .fill)
+                
+            }
             
             Text(data.lastUpdate)
                 .foregroundColor(.black.opacity(0.6))
