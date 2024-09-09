@@ -22,6 +22,28 @@ struct CoinDataResponse: Decodable, Hashable {
     let lastUpdated: String
     let sparklineIn7D: SparklineIn7D?
     
+    var highPrice: String {
+        return "₩" + high24H.formatted()
+    }
+    
+    var lowPrice: String {
+        return "₩" + low24H.formatted()
+    }
+    
+    var athPrice: String {
+        return "₩" + ath.formatted()
+    }
+    
+    var atlPrice: String {
+        return "₩" + atl.formatted()
+    }
+    
+    var lastUpdate: String {
+        let originalDate = lastUpdated.toDate()
+        let newDate = originalDate?.toString()
+        return newDate ?? ""
+    }
+    
     var priceChangePercentage: String {
         return String(format: "%.2f", priceChangePercentage24H) + "%"
     }
@@ -46,4 +68,26 @@ struct CoinDataResponse: Decodable, Hashable {
 
 struct SparklineIn7D: Decodable, Hashable {
     let price: [Double]
+}
+
+enum _DateFormatter: String {
+    static let standard = DateFormatter()
+
+    case original = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    case update = "M/dd HH:mm:ss 업데이트"
+}
+
+extension Date {
+    func toString() -> String {
+        _DateFormatter.standard.timeStyle = .none
+        _DateFormatter.standard.dateFormat = _DateFormatter.update.rawValue
+        return _DateFormatter.standard.string(from: self)
+    }
+}
+
+extension String {
+    func toDate() -> Date? {
+        _DateFormatter.standard.dateFormat = _DateFormatter.original.rawValue
+        return _DateFormatter.standard.date(from: self)
+    }
 }

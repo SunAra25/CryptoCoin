@@ -24,6 +24,7 @@
 		C0AB32F42C8E7855003EC6BE /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AB32F32C8E7855003EC6BE /* SearchView.swift */; };
 		C0AB32F62C8E78D1003EC6BE /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AB32F52C8E78D1003EC6BE /* SearchResponse.swift */; };
 		C0AFF9AC2C8EFA1B00FE9FA3 /* HighlightTextWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AFF9AB2C8EFA1B00FE9FA3 /* HighlightTextWrapper.swift */; };
+		C0AFF9AE2C8F1ACD00FE9FA3 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AFF9AD2C8F1ACD00FE9FA3 /* ChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		C0AB32F32C8E7855003EC6BE /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		C0AB32F52C8E78D1003EC6BE /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		C0AFF9AB2C8EFA1B00FE9FA3 /* HighlightTextWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightTextWrapper.swift; sourceTree = "<group>"; };
+		C0AFF9AD2C8F1ACD00FE9FA3 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				C039EBD62C8DAA7C00727EDA /* CoinInfoView.swift */,
 				C0113FB32C8DF42B002F30C4 /* FavoriteCoinView.swift */,
 				C0AB32F32C8E7855003EC6BE /* SearchView.swift */,
+				C0AFF9AD2C8F1ACD00FE9FA3 /* ChartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				C039EBD72C8DAA7C00727EDA /* CoinInfoView.swift in Sources */,
 				C039EBCE2C8D8FD500727EDA /* SubTitleWrapper.swift in Sources */,
 				C039EBD32C8D9C8B00727EDA /* CoinDataResponse.swift in Sources */,
+				C0AFF9AE2C8F1ACD00FE9FA3 /* ChartView.swift in Sources */,
 				C0AFF9AC2C8EFA1B00FE9FA3 /* HighlightTextWrapper.swift in Sources */,
 				C0113FB42C8DF42B002F30C4 /* FavoriteCoinView.swift in Sources */,
 				C039EBD92C8DB8A000727EDA /* TrendingResponse.swift in Sources */,
