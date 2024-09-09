@@ -11,7 +11,7 @@ struct SearchView: View {
     @State private var input = ""
     @State private var resultList: [CoinResult] = []
     @State private var filterList: [CoinResult] = []
-    @State private var likeList: Set<String> = UserDefaultsManager.like.value
+    @State private var likeList: [String : String] = UserDefaultsManager.like.value
     
     var body: some View {
         NavigationView {
@@ -24,13 +24,13 @@ struct SearchView: View {
                             CoinInfoView(data: infoData, type: .search, target: input)
                             Spacer()
                             Button {
-                                if likeList.contains(where: { $0 == id }) {
-                                    likeList.remove(id)
+                                if let _ = likeList[id] {
+                                    likeList[id] = nil
                                 } else {
-                                    likeList.insert(id)
+                                    likeList[id] = id
                                 }
                             } label: {
-                                Image(systemName: likeList.contains(where: { $0 == id }) ? "star.fill" : "star")
+                                Image(systemName: likeList[id] == nil ? "star" : "star.fill")
                                     .foregroundStyle(.purple)
                             }
                         }

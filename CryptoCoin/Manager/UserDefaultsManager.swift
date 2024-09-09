@@ -12,5 +12,5 @@ enum UserDefaultsManager {
         case like
     }
     
-    static var like = UserDefaultsWrapper(key: Key.like.rawValue, defaultValue: Set<String>())
+    static var like = UserDefaultsWrapper(key: Key.like.rawValue, defaultValue: [String : String]())
 }
